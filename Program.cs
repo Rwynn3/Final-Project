@@ -3,6 +3,7 @@ using System.CodeDom;
 using System.Collections;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 
 namespace TimeClock_Console
@@ -20,9 +21,7 @@ namespace TimeClock_Console
         public static ArrayList empID = new ArrayList();
         public static ArrayList payrate = new ArrayList();
 
-
-
-
+        
 
 
         public static string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -46,6 +45,8 @@ namespace TimeClock_Console
                 File.Create(empIDPath);
                 File.Create(payratePath);
 
+                var filename = Assembly.GetExecutingAssembly().Location;
+                System.Diagnostics.Process.Start(filename);
                 Environment.Exit(0);
             }
             else
@@ -358,7 +359,6 @@ namespace TimeClock_Console
 
                     Console.WriteLine("Clock IN:       Clock Out:");
 
-                    Console.WriteLine(clockOUT.ToString());
 
                     for (int i = 0; i < clockOUT.Count; i++)
                     {
