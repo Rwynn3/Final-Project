@@ -46,7 +46,7 @@ namespace TimeClock_Console
                 File.Create(payratePath);
 
                 var filename = Assembly.GetExecutingAssembly().Location;
-                System.Diagnostics.Process.Start(filename);
+                
                 Environment.Exit(0);
             }
             else
